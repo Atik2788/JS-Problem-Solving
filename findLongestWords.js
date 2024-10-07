@@ -1,13 +1,13 @@
-function longestWords (sentence){
+function longestWords(sentence){
     let words = sentence.split(" ")
-    let longest = "";
+    let longest = ("")
 
     for(let word of words){
-        if(word.length > longest.length){
-            longest = word;
+        if(word.length >= longest.length){
+            longest.push = word;
         }
-    }    
+    }
     return longest;
 }
 
-console.log(longestWords("I love programming chalange! Just kidding."))
+console.log(longestWords("The quick brown fox jumps over the lazy dog."));
