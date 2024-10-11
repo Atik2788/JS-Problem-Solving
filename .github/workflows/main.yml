@@ -1,0 +1,28 @@
+name: Scheduled Commit
+
+on:
+  schedule:
+    - cron: '0 21 * * *' 
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Md. Atikur Rahman Shanta"
+          git config --global user.email "ashanto653.2@gmail.com"
+
+      - name: Make changes
+        run: |
+          echo "This is an automated update." >> newfile.txt 
+
+      - name: Commit and Push changes
+        run: |
+          git add newfile.txt 
+          git commit -m "Automated commit at scheduled time only for checking"
+          git push origin main  
