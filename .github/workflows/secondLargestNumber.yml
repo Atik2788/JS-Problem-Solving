@@ -2,7 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '15 13 * * *'
+    - cron: '26 13 * * *'
 
 jobs:
   commit:
