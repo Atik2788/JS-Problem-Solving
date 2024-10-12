@@ -1,24 +1,29 @@
-name: Scheduled Push
+name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '0 22 * * *' 
+    # বাংলাদেশ সময় বিকেল ২:৪৫ (UTC 08:45)
+    - cron: '45 8 * * *'
 
 jobs:
-  push:
+  commit:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # @v2 থেকে @v3 এ আপডেট
 
       - name: Configure Git
         run: |
           git config --global user.name "Md. Atikur Rahman Shanta"
           git config --global user.email "ashanto653.2@gmail.com"
 
+      - name: Make changes
+        run: |
+          echo "This is an automated update." >> newfile.txt 
+
       - name: Commit and Push changes
         run: |
-          git add .
-          git commit -m "For Checking"
+          git add newfile.txt 
+          git commit -m "Automated commit at scheduled time only for checking"
           git push origin main
