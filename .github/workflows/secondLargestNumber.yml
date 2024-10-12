@@ -2,7 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '7 13 * * *'
+    - cron: '15 13 * * *'
 
 jobs:
   commit:
@@ -19,12 +19,12 @@ jobs:
 
       - name: Make changes
         run: |
-          echo "This is an automated update." >> newfile.txt 
+          echo "This is an automated update." >> 01newfile.txt 
 
       - name: Commit and Push changes
         run: |
           git add newfile.txt
-          git commit -m "Automated commit at scheduled time"
+          git commit -m "Automated commit at scheduled time. Just for learn."
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Atik2788/JS-Problem-Solving.git
           git push origin main
 
