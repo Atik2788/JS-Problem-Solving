@@ -2,8 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    # বাংলাদেশ সময় বিকেল ২:৪৫ (UTC 08:45)
-    - cron: '45 8 * * *'
+    - cron: '58 8 * * *'  # বাংলাদেশ সময় বিকেল ২:৪৫
 
 jobs:
   commit:
@@ -11,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # @v2 থেকে @v3 এ আপডেট
+        uses: actions/checkout@v3
 
       - name: Configure Git
         run: |
@@ -23,7 +22,10 @@ jobs:
           echo "This is an automated update." >> newfile.txt 
 
       - name: Commit and Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add newfile.txt 
           git commit -m "Automated commit at scheduled time only for checking"
-          git push origin main
+          git push
+
