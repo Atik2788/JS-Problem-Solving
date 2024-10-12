@@ -2,7 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '40 16 * * *'
+    - cron: '50 16 * * *'
 
 jobs:
   commit:
@@ -19,8 +19,13 @@ jobs:
 
       - name: Make changes
         run: |
-          echo -e "function removeFalsyValue(arr){\n return arr.filter(Boolean);\n}\n\nconsole.log(removeFalsyValue([0, 1, 2, '', 3, false, 4]))" >> removeFalsyValues222.js 
-          
+          cat <<EOF > removeFalsyValues222.js
+function removeFalsyValue(arr){
+  return arr.filter(Boolean);
+}
+
+console.log(removeFalsyValue([0, 1, 2, '', 3, false, 4]));
+EOF
 
       - name: Commit and Push changes
         env:
@@ -30,3 +35,4 @@ jobs:
           git add removeFalsyValues222.js 
           git commit -m "Remove falsy values from an array" || true
           git push origin main
+
