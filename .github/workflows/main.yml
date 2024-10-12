@@ -2,7 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '* 15 * * *'
+    - cron: '15 15 * * *'
 
 jobs:
   commit:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Make changes
         run: |
-          echo "This is an automated update." >> newfile.txt 
+          echo "This is an automated update." >> newfile2.txt 
 
       - name: Commit and Push changes
         env:
