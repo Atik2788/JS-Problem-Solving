@@ -19,14 +19,14 @@ jobs:
 
       - name: Make changes
         run: |
-          echo "console.log(Math.max(...[55,69,87,98,25,25,115,114,189,368])" >> justForCheck.js 
+          echo "console.log(Math.max(...[55,69,87,98,25,25,115,114,189,368]))" >> justForCheck.js 
 
       - name: Commit and Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git pull origin main || true  # Pull any changes first
-          git add newfile.txt
+          git add justForCheck.js
           git commit -m "Automated commit at scheduled time only for checking" || true
           git push origin main
 
