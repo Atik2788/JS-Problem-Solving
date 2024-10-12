@@ -2,8 +2,8 @@ name: Scheduled Commit
 
 on:
   schedule:
-    # বাংলাদেশ সময় রাত ৭:৩৩ (UTC 13:33)
-    - cron: '20 14 * * *'
+    # বাংলাদেশ সময় রাত ৭:৩৩ (UTC 13:33)
+    - cron: '35 14 * * *'
 
 jobs:
   commit:
@@ -25,10 +25,11 @@ jobs:
       - name: Commit and Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                      run: |
+        run: |
           git pull origin main || true  # Pull any changes first
           git add newfile.txt
           git commit -m "Automated commit at scheduled time only for checking" || true
           git push origin main
+
 
 
