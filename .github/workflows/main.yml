@@ -2,7 +2,8 @@ name: Scheduled Commit
 
 on:
   schedule:
-    - cron: '0 21 * * *' 
+    # বাংলাদেশ সময় দুপুর ৩টায় (UTC 09:00)
+    - cron: '0 9 * * *'
 
 jobs:
   commit:
@@ -10,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # @v2 থেকে @v3 এ আপডেট
 
       - name: Configure Git
         run: |
@@ -25,4 +26,5 @@ jobs:
         run: |
           git add newfile.txt 
           git commit -m "Automated commit at scheduled time only for checking"
-          git push origin main  
+          git push origin main
+
