@@ -2,8 +2,7 @@ name: Scheduled Commit
 
 on:
   schedule:
-    # বাংলাদেশ সময় রাত ৭:৩৩ (UTC 13:33)
-    - cron: '49 14 * * *'
+    - cron: '* 15 * * *'
 
 jobs:
   commit:
