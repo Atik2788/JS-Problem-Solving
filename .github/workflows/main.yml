@@ -19,7 +19,7 @@ jobs:
 
       - name: Make changes
         run: |
-          echo "This is an automated update for learn." >> newfile2.txt 
+          echo "This is an automated update for learn." >> newfile.txt 
 
       - name: Commit and Push changes
         env:
