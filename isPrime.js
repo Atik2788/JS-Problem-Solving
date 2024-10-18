@@ -9,4 +9,4 @@ function isPrime (n){
     
 }
 
-console.log(isPrime(5))
+console.log("Is Prime?", isPrime(5))
