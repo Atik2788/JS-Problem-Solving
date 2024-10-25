@@ -7,4 +7,8 @@ function findLargestReduse(numbers){
 console.log(findLargestReduse([12, 2, 58, 66, 99, 88, 99, 115, 225]));
 
 // Sum of numbers in Array
-function sumOfNumbers
+function sumOfNumbers (arr){
+    const sum = arr.reduce((total, num) => total + num, 0)
+    return sum
+}
+console.log(sumOfNumbers([12, 2, 58, 66, 99, 88, 99, 115, 225, 1]));
