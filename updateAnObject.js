@@ -1,3 +1,4 @@
+// use map
 const items = [
     { id: 1, name: 'Item 1', price: 100 },
     { id: 2, name: 'Item 2', price: 200 },
@@ -10,3 +11,16 @@ const updateItems = items.map(item=>
 )
 
 console.log(updateItems);
+
+//use forEach
+let users = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Sam' }
+];
+users.forEach(user =>{
+    if(user.id === 3){
+        user.name = 'Mohit'
+    }
+})
+console.log(users);
