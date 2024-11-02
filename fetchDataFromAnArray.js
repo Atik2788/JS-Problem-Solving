@@ -24,8 +24,11 @@ const firstUser = getFirstElementByCondition(users, user => user.age >=25)
 console.log(firstUser)
 
 // fetch all value
-const users2 = [
-    { id: 1, name: "Alice", age: 25 },
-    { id: 2, name: "Bob", age: 30 },
-    { id: 3, name: "Charlie", age: 35 }
-];
+
+function getData (array) {
+    return array.map(arr => {
+        console.log(arr)
+    })
+}
+
+console.log(getData(users))
