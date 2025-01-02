@@ -1,0 +1,13 @@
+function delayedLogger(messages) {
+  for (let i = 0; i < messages.length; i++) {
+    setTimeout(() => {
+      console.log(messages[i]);
+    }, (i + 1) * 1000);
+  }
+}
+
+// Example Input
+const messages = ['Message 1', 'Message 2', 'Message 3'];
+
+// Run the function
+delayedLogger(messages);
