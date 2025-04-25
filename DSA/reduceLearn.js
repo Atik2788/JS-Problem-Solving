@@ -1,4 +1,4 @@
-const numbers = [15, 9, 2, 3, 4, 5, 0, 11, -1, 15];
+const numbers = [15, 9, 2, 9, 15];
 
 const sum = numbers.reduce((acc, cur) =>{
     return acc+cur
@@ -49,8 +49,31 @@ const findSecondMax = numbers.reduce((acc, curr) =>{
     if(curr>acc.secondMax && curr !== acc.max){
         acc.secondMax = curr;
     }
+    
     return acc
 
 }, {max: -Infinity, secondMax: -Infinity})
 
-console.log(findSecondMax); 
+// console.log(findSecondMax); 
+
+
+const numbers2 = [5, 5, 
+];
+const findThirdLargest = numbers2.reduce((acc, curr) =>{
+    if(curr > acc.max){
+        acc.thirdMax = acc.max;
+        acc.secondMax = acc.max;
+        acc.max = curr;
+    }
+    else if(curr > acc.secondMax && curr !== acc.max){
+        acc.thirdMax = acc.secondMax;
+        acc.secondMax = curr;
+    } 
+    else if(curr > acc.thirdMax && curr !== acc.max && curr !== acc.secondMax){
+        // acc.thirdMax = acc.secondMax;
+        acc.thirdMax = curr;
+    } 
+    return acc;
+
+}, {max: -Infinity, secondMax: -Infinity, thirdMax: -Infinity})
+console.log("third largest", findThirdLargest.thirdMax); 
