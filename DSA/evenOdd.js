@@ -35,3 +35,21 @@ function eventOddCount(arr){
 }
 
 console.log(eventOddCount(numbers));
+
+
+function countUseForEach(arr){
+    let evenCount = 0;
+    let oddCount = 0;
+
+    arr.forEach(num =>{
+        if(num%2 ===0){
+            evenCount++
+        }
+        else{
+            oddCount++
+        }
+    })
+    return {evenCount, oddCount}
+}
+
+console.log(countUseForEach(numbers));
