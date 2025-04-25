@@ -76,4 +76,27 @@ const findThirdLargest = numbers2.reduce((acc, curr) =>{
     return acc;
 
 }, {max: -Infinity, secondMax: -Infinity, thirdMax: -Infinity})
-console.log("third largest", findThirdLargest.thirdMax); 
+// console.log("third largest", findThirdLargest.thirdMax); 
+
+
+//  Find the largest even number and the smallest odd number in an array
+const numbers3 = [5, 12, 7, 4, 9, 16, 3, 3, 16, 2, 17];
+
+const findLargestAndSmallestOddNumber = numbers3.reduce((acc, curr) =>{
+
+    if(curr % 2 === 0){
+        if(curr > acc.maxEven){
+            acc.maxEven = curr
+        }
+    }
+    else{
+        if (curr < acc.smallestOdd){
+            acc.smallestOdd = curr
+        }
+    }
+    return acc;
+    
+}, {maxEven: -Infinity, smallestOdd: Infinity})
+
+console.log(findLargestAndSmallestOddNumber); 
+
