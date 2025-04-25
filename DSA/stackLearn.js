@@ -34,8 +34,52 @@
 
 // const stack2 = new Stack();
 // stack2.push(100)
-// console.log(stack2.peek());
-// console.log(stack2.isEmpty());
+// // console.log(stack2.peek());
+// // console.log(stack2.isEmpty());
+
+
+// class Stack{
+//     constructor(){
+//         this.items = []
+//     }
+
+//     push(value){
+//         this.items.push(value)
+//     }
+
+//     pop(){
+//         return this.items.pop()
+//     }
+
+//     peek(){
+//         return this.items[this.items.length - 1]
+//     }
+
+//     isEmpty(){
+//         return this.items.length === 0;
+//     }
+// }
+
+// function reverseStringUsingStack (str){
+//     const stack = new Stack();
+
+//     for(let char of str){
+//         stack.push(char)
+//     }
+
+//     let reversed = "";
+
+//     while(!stack.isEmpty()){
+//         reversed += stack.pop()
+//     }
+
+//     return reversed
+// }
+
+// console.log(reverseStringUsingStack('hello'));
+// console.log(reverseStringUsingStack('bangladesh'));
+// console.log(reverseStringUsingStack('Atikur'));
+
 
 
 class Stack{
@@ -52,29 +96,33 @@ class Stack{
     }
 
     peek(){
-        return this.items[this.items.length - 1]
+        return this.items(this.items.length - 1)
     }
 
     isEmpty(){
-        return this.items.length === 0;
+        return this.items.length ===0;
     }
 }
 
-function reverseStringUsingStack (str){
-    const stack = new Stack();
+function isPalindromeUsingStack(str){
 
-    for(let char of str){
+    const formatted = str.replace(/\s+/g, '').toLowerCase()
+
+    const stack = new Stack()
+
+    for(let char of formatted){
         stack.push(char)
     }
 
     let reversed = "";
 
     while(!stack.isEmpty()){
-        reversed += stack.pop()
+       reversed += stack.pop()
     }
 
-    return reversed
+    return formatted === reversed;
 }
 
-console.log(reverseStringUsingStack('hello'));
-console.log(reverseStringUsingStack('bangladesh'));
+console.log(isPalindromeUsingStack('hello'));
+console.log(isPalindromeUsingStack('wow'));
+console.log(isPalindromeUsingStack('bangladesh'));
